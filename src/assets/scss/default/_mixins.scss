@@ -1,1 +1,92 @@
+/*------------------------------------
+    Mixins
+------------------------------------*/
 
+@mixin clearfix() {
+	&::after {
+		clear: both;
+		content: "";
+		display: table;
+	}
+}
+
+// Placeholder
+@mixin placeholder {
+    &::-webkit-input-placeholder {
+        @content;
+    }
+    &:-moz-placeholder {
+        @content;
+    }
+    &::-moz-placeholder { 
+        @content;
+    }
+    &:-ms-input-placeholder {
+        @content;
+    }
+}
+
+// Border Radius
+@mixin border-radius($value: 0){
+	-webkit-border-radius: $value;
+	-moz-border-radius: $value;
+	-ms-border-radius: $value;
+	-o-border-radius: $value;
+	border-radius: $value;
+}
+
+// Transition
+@mixin transition($transition) {
+	-webkit-transition: $transition;
+	-moz-transition: $transition;
+	-ms-transition: $transition;
+	-o-transition: $transition;
+	transition: $transition;
+}
+
+// Background Gradient
+@mixin bg-gradient($deg: 0, $c1: $primary, $c2: $secondary) {
+  background-image: linear-gradient($deg#{deg} , $c1 0%, $c2 100%);
+}
+
+// Overlay
+@mixin overlay($type) {
+	@if ($type == 'image') {
+        background: no-repeat center center / cover;
+    } @else if ($type == 'color') {
+        .bg-color {
+            @extend .display-screen;
+        }
+    } @else if ($type == 'gradient') {
+        .bg-gradient {
+            @extend .display-screen;
+        }
+    }
+}  
+
+// Media
+@mixin media-min($width) {
+    @media only screen and (min-width: $width) {
+      @content;
+    }
+}
+@mixin media-max($width) {
+    @media only screen and (max-width: $width) {
+      @content;
+    }
+}
+
+// Keyframes
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} {
+      @content;
+    }
+  
+    @-moz-keyframes #{$name} {
+      @content;
+    }
+  
+    @keyframes #{$name} {
+      @content;
+    }
+}
