@@ -4,7 +4,7 @@ import { BrowserRouter, Switch, Route  } from 'react-router-dom'
 import * as serviceWorker from "./serviceWorker"
 
 // Scenes
-import Demo from './scenes/Demo'
+import Demo from './scenes/demo/Demo'
 
 // Stylesheet
 import './index.scss'
